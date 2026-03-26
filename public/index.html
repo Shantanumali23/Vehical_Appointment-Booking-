@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoBazaar — Buy. Inspect. Drive.</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="logo">AUTO<span>BAZAAR</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#listings" class="nav-link">Listings</a></li>
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="#appointments" class="nav-link">Book Inspection</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-ghost" id="openLoginBtn">Sign In</button>
+                <button class="btn-primary" id="openSignupBtn">Sign Up</button>
+            </div>
+            <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-content">
+            <span class="hero-tag">🚗 India's Fastest Growing Used Vehicle Marketplace</span>
+            <h1 class="hero-title">Find Your<br /><span class="accent-text">Perfect Ride</span><br />At The Best Price
+            </h1>
+            <p class="hero-sub">Browse thousands of verified cars, bikes & scooters. Book a physical inspection
+                appointment in seconds.</p>
+            <div class="hero-cta-row">
+                <button class="btn-hero-primary" onclick="scrollToSection('listings')">Browse Listings</button>
+                <button class="btn-hero-outline" onclick="scrollToSection('appointments')">Book Inspection</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-num">12,400+</span><span class="stat-label">Vehicles Listed</span>
+                </div>
+                <div class="stat"><span class="stat-num">8,900+</span><span class="stat-label">Happy Buyers</span></div>
+                <div class="stat"><span class="stat-num">4.9★</span><span class="stat-label">Avg. Rating</span></div>
+            </div>
+        </div>
+        <div class="hero-image-area">
+            <div class="hero-card-float">
+                <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=480&q=80" alt="Featured Car"
+                    class="hero-car-img" />
+                <div class="hero-card-badge"><i class="fas fa-check-circle"></i> Verified</div>
+            </div>
+        </div>
+        <div class="hero-scroll-hint"><span>Scroll</span><i class="fas fa-arrow-down"></i></div>
+    </section>
+
+    <!-- ===== SEARCH / FILTER BAR ===== -->
+    <section class="search-section" id="listings">
+        <div class="container">
+            <div class="search-bar">
+                <div class="filter-group">
+                    <label>Category</label>
+                    <select id="filterCategory">
+                        <option value="">All Types</option>
+                        <option value="car">Cars</option>
+                        <option value="bike">Bikes</option>
+                        <option value="scooter">Scooters</option>
+                        <option value="truck">Trucks</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Max Budget</label>
+                    <select id="filterBudget">
+                        <option value="">Any Budget</option>
+                        <option value="200000">Under ₹2L</option>
+                        <option value="500000">Under ₹5L</option>
+                        <option value="1000000">Under ₹10L</option>
+                        <option value="2000000">Under ₹20L</option>
+                    </select>
+                </div>
+                <div class="filter-group search-input-group">
+                    <label>Search</label>
+                    <input type="text" id="searchInput" placeholder="e.g. Honda City, Royal Enfield…" />
+                </div>
+                <button class="btn-search" id="applyFilters"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LISTINGS ===== -->
+    <section class="listings-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured <span class="accent">Vehicles</span></h2>
+                <p>Hand-picked, inspected, and ready for a new owner.</p>
+            </div>
+            <div class="listings-grid" id="listingsGrid">
+                <!-- Cards injected by JS -->
+            </div>
+            <div class="load-more-row">
+                <button class="btn-outline-load" id="loadMoreBtn">Load More Listings</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="how-section" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It <span class="accent">Works</span></h2>
+                <p>From browsing to driving — in 3 easy steps.</p>
+            </div>
+            <div class="steps-row">
+                <div class="step-card">
+                    <div class="step-icon"><i class="fas fa-search"></i></div>
+                    <div class="step-num">01</div>
+                    <h3>Browse & Pick</h3>
+                    <p>Filter by type, budget, brand, and location. Each listing includes photos, specs, and ownership
+                        history.</p>
+                </div>
+                <div class="step-divider"><i class="fas fa-arrow-right"></i></div>
+                <div class="step-card">
+                    <div class="step-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="step-num">02</div>
+                    <h3>Book Inspection</h3>
+                    <p>Schedule a physical visit at a convenient time. Our certified inspector will be present with you.
+                    </p>
+                </div>
+                <div class="step-divider"><i class="fas fa-arrow-right"></i></div>
+                <div class="step-card">
+                    <div class="step-icon"><i class="fas fa-car"></i></div>
+                    <div class="step-num">03</div>
+                    <h3>Drive Home</h3>
+                    <p>Complete paperwork, transfer ownership seamlessly, and drive away in your new vehicle!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== APPOINTMENT BOOKING ===== -->
+    <section class="appointment-section" id="appointments">
+        <div class="container">
+            <div class="section-header light">
+                <h2>Book an <span class="accent">Inspection</span></h2>
+                <p>Fill in the details below to schedule your vehicle inspection appointment.</p>
+            </div>
+            <div class="appointment-layout">
+                <div class="appointment-info">
+                    <div class="appt-info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>200-Point Inspection</h4>
+                        <p>Every vehicle is checked by certified mechanics before delivery.</p>
+                    </div>
+                    <div class="appt-info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>We Come to You</h4>
+                        <p>Choose any location in the city — we'll bring the vehicle there.</p>
+                    </div>
+                    <div class="appt-info-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Flexible Timing</h4>
+                        <p>Morning, afternoon, or evening slots available 7 days a week.</p>
+                    </div>
+                    <div class="appt-info-card">
+                        <i class="fas fa-undo"></i>
+                        <h4>Free Cancellation</h4>
+                        <p>Cancel or reschedule up to 24 hours before your appointment.</p>
+                    </div>
+                </div>
+                <form class="appointment-form" id="appointmentForm" onsubmit="return false;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name <span class="required">*</span></label>
+                            <input type="text" id="apptName" placeholder="Rahul Sharma" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="apptPhone" placeholder="+91 98765 43210" required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email Address <span class="required">*</span></label>
+                            <input type="email" id="apptEmail" placeholder="rahul@example.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Vehicle Interested In <span class="required">*</span></label>
+                            <select id="apptVehicle" required>
+                                <option value="">Select a vehicle…</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Preferred Date <span class="required">*</span></label>
+                            <input type="date" id="apptDate" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time <span class="required">*</span></label>
+                            <select id="apptTime" required>
+                                <option value="">Select time…</option>
+                                <option value="09:00 AM">09:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="02:00 PM">02:00 PM</option>
+                                <option value="03:00 PM">03:00 PM</option>
+                                <option value="04:00 PM">04:00 PM</option>
+                                <option value="05:00 PM">05:00 PM</option>
+                                <option value="06:00 PM">06:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Inspection Location / Address</label>
+                        <input type="text" id="apptLocation" placeholder="e.g. Koregaon Park, Pune" />
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Additional Notes</label>
+                        <textarea id="apptNotes" rows="3"
+                            placeholder="Any specific concerns or questions about the vehicle?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-book" id="bookBtn">
+                        <i class="fas fa-calendar-alt"></i> Confirm Appointment
+                    </button>
+                    <div class="form-msg" id="formMsg"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get In <span class="accent">Touch</span></h2>
+                    <p>Have questions? Our team is here to help you find the perfect ride.</p>
+                    <div class="contact-item"><i class="fas fa-phone"></i><span>+91 800 123 4567</span></div>
+                    <div class="contact-item"><i class="fas fa-envelope"></i><span>hello@autobazaar.in</span></div>
+                    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Koregaon Park, Pune,
+                            Maharashtra</span></div>
+                    <div class="social-row">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="my-appointments-box" id="myAppointments">
+                    <h3><i class="fas fa-list-alt"></i> My Appointments</h3>
+                    <p class="login-prompt" id="apptLoginPrompt">Please <a href="#"
+                            onclick="openModal('loginModal')">sign in</a> to view your appointments.</p>
+                    <div class="appointments-list" id="appointmentsList" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo">AUTO<span>BAZAAR</span></span>
+                <p>India's most trusted marketplace for pre-owned vehicles.</p>
+            </div>
+            <div class="footer-links">
+                <h5>Quick Links</h5>
+                <a href="#listings">Browse Cars</a>
+                <a href="#appointments">Book Inspection</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-links">
+                <h5>Legal</h5>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Refund Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 AutoBazaar. Built with ❤️ in Pune, India.</p>
+        </div>
+    </footer>
+
+    <!-- ===== VEHICLE DETAIL MODAL ===== -->
+    <div class="modal-overlay" id="vehicleModal">
+        <div class="modal-box vehicle-modal-box">
+            <button class="modal-close" onclick="closeModal('vehicleModal')"><i class="fas fa-times"></i></button>
+            <div id="vehicleModalContent"></div>
+        </div>
+    </div>
+
+    <!-- ===== LOGIN MODAL ===== -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-box auth-modal">
+            <button class="modal-close" onclick="closeModal('loginModal')"><i class="fas fa-times"></i></button>
+            <div class="auth-header">
+                <h2>Welcome Back</h2>
+                <p>Sign in to your AutoBazaar account</p>
+            </div>
+            <form id="loginForm" onsubmit="return false;">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="password-wrap">
+                        <input type="password" id="loginPassword" placeholder="••••••••" required />
+                        <button type="button" class="toggle-pw" onclick="togglePw('loginPassword')"><i
+                                class="fas fa-eye"></i></button>
+                    </div>
+                </div>
+                <div class="auth-msg" id="loginMsg"></div>
+                <button type="submit" class="btn-auth" id="loginBtn">Sign In</button>
+            </form>
+            <p class="auth-switch">Don't have an account? <a href="#"
+                    onclick="switchAuth('loginModal','signupModal')">Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- ===== SIGNUP MODAL ===== -->
+    <div class="modal-overlay" id="signupModal">
+        <div class="modal-box auth-modal">
+            <button class="modal-close" onclick="closeModal('signupModal')"><i class="fas fa-times"></i></button>
+            <div class="auth-header">
+                <h2>Create Account</h2>
+                <p>Join AutoBazaar to book inspections & track listings</p>
+            </div>
+            <form id="signupForm" onsubmit="return false;">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="signupName" placeholder="Rahul Sharma" required />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="signupEmail" placeholder="you@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="signupPhone" placeholder="+91 98765 43210" />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="password-wrap">
+                        <input type="password" id="signupPassword" placeholder="Min. 8 characters" required />
+                        <button type="button" class="toggle-pw" onclick="togglePw('signupPassword')"><i
+                                class="fas fa-eye"></i></button>
+                    </div>
+                </div>
+                <div class="auth-msg" id="signupMsg"></div>
+                <button type="submit" class="btn-auth" id="signupBtn">Create Account</button>
+            </form>
+            <p class="auth-switch">Already have an account? <a href="#"
+                    onclick="switchAuth('signupModal','loginModal')">Sign In</a></p>
+        </div>
+    </div>
+
+    <!-- ===== TOAST ===== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
